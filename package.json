@@ -19,6 +19,6 @@
     "@mui/icons-material": "5.15.9",
     "@emotion/react": "11.11.1",
     "helmet": "7.1.0",
-    "express-rate-limit": "7.2.0",
+    "express-rate-limit": "7.2.0"
   }
 }

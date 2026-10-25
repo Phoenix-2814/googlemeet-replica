@@ -12,9 +12,22 @@ import MicOffIcon from '@mui/icons-material/MicOff';
 import ScreenShareIcon from '@mui/icons-material/ScreenShare';
 import CallEndIcon from '@mui/icons-material/CallEnd';
 
-let socket; // singleton per page load
+// Vercel API route socket endpoint
+const socket = io({ path: '/api/socket' });
 
 export default function Meeting() {
+  const router = useRouter();
+  const { id: meetingId } = router.query;
+  const localVideoRef = useRef(null);
+  const remoteVideoRef = useRef(null);
+  const peerRef = useRef(null);
+  const [stream, setStream] = useState(null);
+  const [videoEnabled, setVideoEnabled] = useState(true);
+  const [audioEnabled, setAudioEnabled] = useState(true);
+  const [joined, setJoined] = useState(false);
+
+  // No need for socket init effect – socket is already created above
+
   const router = useRouter();
   const { id: meetingId } = router.query;
   const localVideoRef = useRef(null);
