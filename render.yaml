@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: google-meet-replica
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    autoDeploy: true
+    # Render will provide HTTPS automatically
+
